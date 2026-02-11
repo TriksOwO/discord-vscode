@@ -164,8 +164,6 @@ async function details(idling: CONFIG_KEYS, editing: CONFIG_KEYS, debugging: CON
 			.replace(REPLACE_KEYS.LanguageLowerCase, toLower(fileIcon))
 			.replace(REPLACE_KEYS.LanguageTitleCase, toTitle(fileIcon))
 			.replace(REPLACE_KEYS.LanguageUpperCase, toUpper(fileIcon));
-
-		log(LogLevel.Info, `raw: ${raw}`);
 	} else if (tabInput) {
 		const activeTab = window.tabGroups.activeTabGroup.activeTab;
 		if (activeTab?.input instanceof TabInputCustom) {
@@ -189,11 +187,6 @@ async function details(idling: CONFIG_KEYS, editing: CONFIG_KEYS, debugging: CON
 				relativePath.splice(-1, 1);
 				raw = raw.replace(REPLACE_KEYS.FullDirName, `${name}${sep}${relativePath.join(sep)}`);
 			}
-
-			log(
-				LogLevel.Debug,
-				`workspaceFolder: ${workspaceFolder?.name}, uri: ${uri.fsPath}, workspaceName: ${workspaceName}`,
-			);
 
 			raw = raw
 				.replace(REPLACE_KEYS.FileName, fileName)
