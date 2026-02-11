@@ -172,7 +172,7 @@
 					},
 					"discord.largeImageViewiengDatabase": {
 						"type": "string",
-						"default": "Viewing a databse  file",
+						"default": "Viewing a database  file",
 						"description": "Custom string for the largeImageText section of the rich presence. when displaying data base files"
 					},
 					"discord.largeImage": {
