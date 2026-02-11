@@ -277,18 +277,14 @@ export async function activity(previous: ActivityPayload = {}) {
 	const activeTab = window.tabGroups.activeTabGroup.activeTab;
 	const tabInput = activeTab?.input instanceof TabInputCustom ? activeTab.input : null;
 	if (tabInput) {
-		log(LogLevel.Info, `else block entered`);
 		const activeTab = window.tabGroups.activeTabGroup.activeTab;
-		log(LogLevel.Info, `activeTab: ${activeTab?.label}`);
 		const tabInput = activeTab?.input instanceof TabInputCustom ? activeTab.input : null;
-		log(LogLevel.Info, `tabInput: ${tabInput?.uri.fsPath}`);
 		if (tabInput) {
 			const ext = parse(tabInput.uri.fsPath).ext.slice(1).toLowerCase();
 			const DB_EXTENSIONS = ['db', 'sqlite', 'sqlite3'];
 			if (DB_EXTENSIONS.includes(ext)) {
 				// Viewing datbase file, other activites can be added in else if statments.
 				const largeImageKey = 'sql';
-				log(LogLevel.Info, `LargeImageViewingDatabase config: ${config[CONFIG_KEYS.LargeImageViewingDatabase]}`);
 				const largeImageText = config[CONFIG_KEYS.LargeImageViewingDatabase]
 					.replace(REPLACE_KEYS.LanguageLowerCase, toLower(largeImageKey))
 					.replace(REPLACE_KEYS.LanguageTitleCase, toTitle(largeImageKey))
